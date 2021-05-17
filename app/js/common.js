@@ -104,11 +104,20 @@ $(document).ready(function () {
 });
 //плавный скролл end
 
-
-$('.btn-load-card').on('click', function (e) {
-    e.preventDefault();
-    $(this).parents('.card-load-wrapper').find('.card-load:hidden').slice(0, 5).slideDown();
+var used;
+$(".btn-load-card").on("click", function (e) {
+    if (used !== this) {
+        used = this;
+        e.preventDefault();
+        $(this).parents('.card-load-wrapper').find('.card-load:hidden').slice(0, 5).slideDown();
+    }
 });
+
+
+// $('.btn-load-card').on('click', function (e) {
+//     e.preventDefault();
+//     $(this).parents('.card-load-wrapper').find('.card-load:hidden').slice(0, 5).slideDown();
+// });
 
 $('.view-section__head').on('click', function () {
     $(this).toggleClass('click').siblings('.view-section__body').fadeToggle();
