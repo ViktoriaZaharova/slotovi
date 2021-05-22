@@ -94,11 +94,13 @@ $(document).ready(function () {
     $('.go_to').click(function (e) {
         e.preventDefault();
         var scroll_el = $(this).attr('href');
-        if ($(scroll_el).length != 0) {
+        if (($(scroll_el).length !== 0) || ($(scroll_el).css('display') === 'none')) {
+            $(scroll_el).fadeIn();
             $('html, body').animate({
                 scrollTop: $(scroll_el).offset().top
             }, 500);
         }
+
         return false;
     });
 });
